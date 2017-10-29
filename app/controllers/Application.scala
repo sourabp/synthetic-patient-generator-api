@@ -15,7 +15,6 @@ object Application extends Controller {
     Ok(views.html.index("Hello Play Framework"))
   }
   def generate_data=Action{ implicit request=>
-    println(request.body.toString)
     val dataRequestJson=request.body.asJson.get
     val populationSize=dataRequestJson.\("population").as[Int]
     val demographicConfig=dataRequestJson.\("demographics_config").toString()
